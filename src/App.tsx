@@ -1,20 +1,19 @@
 import React from 'react'
-import logo from './logo.svg'
 import './App.scss'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { routes_not_auth } from './routers/routers'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Switch>
+          {routes_not_auth.map((route, index) => {
+            return <Route key={`not-auth-${index}`} exact={route.exact} path={route.path} component={route.main} />
+          })}
+        </Switch>
+      </Router>
+    </>
   )
 }
 
