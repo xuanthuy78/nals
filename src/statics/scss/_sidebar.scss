@@ -8,10 +8,14 @@
   padding: 0;
   width: $sidebar-width-lg;
   z-index: 11;
-  transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
-  -webkit-transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
-  -moz-transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
-  -ms-transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
+  transition: width $action-transition-duration $action-transition-timing-function,
+    background $action-transition-duration $action-transition-timing-function;
+  -webkit-transition: width $action-transition-duration $action-transition-timing-function,
+    background $action-transition-duration $action-transition-timing-function;
+  -moz-transition: width $action-transition-duration $action-transition-timing-function,
+    background $action-transition-duration $action-transition-timing-function;
+  -ms-transition: width $action-transition-duration $action-transition-timing-function,
+    background $action-transition-duration $action-transition-timing-function;
 
   .nav {
     overflow: hidden;
@@ -31,7 +35,8 @@
         @include display-flex;
         @include align-items(center);
         white-space: nowrap;
-        padding: $sidebar-menu-padding-top $sidebar-menu-padding-right $sidebar-menu-padding-bottom $sidebar-menu-padding-left;
+        padding: $sidebar-menu-padding-top $sidebar-menu-padding-right $sidebar-menu-padding-bottom
+          $sidebar-menu-padding-left;
         color: $sidebar-light-menu-color;
         @include transition-duration(0.45s);
         transition-property: color;
@@ -66,13 +71,13 @@
             }
 
             &:before {
-              content: "\e649";
-              font-family: "themify";
+              content: '\003e';
+              font-family: 'themify';
               font-style: normal;
               display: block;
-              font-size: 0.687rem;
+              font-size: 1rem;
               line-height: 10px;
-              @include transition(all .2s ease-in);
+              @include transition(all 0.2s ease-in);
             }
           }
         }
@@ -93,7 +98,7 @@
             margin-right: auto;
           }
         }
-        &[aria-expanded="true"] {
+        &[aria-expanded='true'] {
           i {
             &.menu-arrow {
               &:before {
@@ -106,20 +111,20 @@
 
       &.active {
         > .nav-link {
-            background: $sidebar-light-menu-active-bg;
-            position: relative;
-            i,
-            .menu-title,
-            .menu-arrow {
-              color: $sidebar-light-menu-active-color;
-            }
-            i {
-              &.menu-arrow {
-                &::before {
-                  content: "\e64b";
-                }
+          background: $sidebar-light-menu-active-bg;
+          position: relative;
+          i,
+          .menu-title,
+          .menu-arrow {
+            color: $sidebar-light-menu-active-color;
+          }
+          i {
+            &.menu-arrow {
+              &::before {
+                content: '';
               }
             }
+          }
         }
       }
     }
@@ -129,17 +134,18 @@
       margin-left: 0.375rem;
       margin-right: 0.375rem;
       > .nav-item {
-        margin-top: .2rem;
+        margin-top: 0.2rem;
         &:hover {
-          > .nav-link, &[aria-expanded="true"] {
+          > .nav-link,
+          &[aria-expanded='true'] {
             background: $sidebar-light-menu-hover-bg;
             color: $sidebar-light-menu-hover-color;
-            border-radius: 0.437rem;                         
+            border-radius: 0.437rem;
           }
         }
         > .nav-link {
           margin: 0;
-          &[aria-expanded="true"] {
+          &[aria-expanded='true'] {
             border-radius: 0.437rem 0.437rem 0 0;
             background: $sidebar-light-menu-hover-bg;
           }
@@ -152,7 +158,7 @@
     }
     &.sub-menu {
       margin-bottom: 0;
-      margin-top:0;
+      margin-top: 0;
       list-style: none;
       padding: $sidebar-submenu-padding;
       background: $sidebar-light-menu-hover-bg;
