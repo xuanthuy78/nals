@@ -15,7 +15,6 @@ function Login(props: any) {
   const onLogin = (e: any) => {
     e.preventDefault()
     props.actions.authLogin(login).then((res: any) => {
-      console.log(res)
       if (res && res.error && res.error.status === 0) {
         setErorr('Vui lòng nhập lại tài khoản')
       }
