@@ -11,7 +11,7 @@ export const authLogin = (param: []) => (dispatch: any) =>
       },
     },
   })
-  export const listUser = () => (dispatch:any) =>
+export const listUser = () => (dispatch: any) =>
   dispatch({
     types: [types.API_REQUEST_SEND, types.LIST_USER, types.API_REQUEST_ERROR],
     payload: {
@@ -19,8 +19,8 @@ export const authLogin = (param: []) => (dispatch: any) =>
         url: `users`,
         method: 'GET',
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
       },
     },
   })
