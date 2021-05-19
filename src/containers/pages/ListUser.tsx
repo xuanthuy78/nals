@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as Actions from '../../actions'
 
-function ListUser() {
+function ListUser(props: any) {
+  useEffect(() => {
+    const apiUsers = async () => {
+      await props.actions.listUser()
+    }
+    apiUsers()
+  }, [props.actions])
   return (
     <>
       <div className="row">
@@ -21,48 +30,20 @@ function ListUser() {
                       <th>Status</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>Jacob</td>
-                      <td>53275531</td>
-                      <td>12 May 2017</td>
-                      <td>
-                        <label className="badge badge-danger">Pending</label>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Messsy</td>
-                      <td>53275532</td>
-                      <td>15 May 2017</td>
-                      <td>
-                        <label className="badge badge-warning">In progress</label>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>John</td>
-                      <td>53275533</td>
-                      <td>14 May 2017</td>
-                      <td>
-                        <label className="badge badge-info">Fixed</label>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Peter</td>
-                      <td>53275534</td>
-                      <td>16 May 2017</td>
-                      <td>
-                        <label className="badge badge-success">Completed</label>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Dave</td>
-                      <td>53275535</td>
-                      <td>20 May 2017</td>
-                      <td>
-                        <label className="badge badge-warning">In progress</label>
-                      </td>
-                    </tr>
-                  </tbody>
+                  {props.users.map((item: any, index: number) => {
+                    return (
+                      <tbody key={index}>
+                        <tr>
+                          <td>{item.name}</td>
+                          <td>{item.phone}</td>
+                          <td>12 May 2017</td>
+                          <td>
+                            <label className="badge badge-success">Completed</label>
+                          </td>
+                        </tr>
+                      </tbody>
+                    )
+                  })}
                 </table>
               </div>
             </div>
@@ -85,63 +66,23 @@ function ListUser() {
                       <th>Status</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>Jacob</td>
-                      <td>Photoshop</td>
-                      <td className="text-danger">
-                        {' '}
-                        28.76% <i className="ti-arrow-down" />
-                      </td>
-                      <td>
-                        <label className="badge badge-danger">Pending</label>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Messsy</td>
-                      <td>Flash</td>
-                      <td className="text-danger">
-                        {' '}
-                        21.06% <i className="ti-arrow-down" />
-                      </td>
-                      <td>
-                        <label className="badge badge-warning">In progress</label>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>John</td>
-                      <td>Premier</td>
-                      <td className="text-danger">
-                        {' '}
-                        35.00% <i className="ti-arrow-down" />
-                      </td>
-                      <td>
-                        <label className="badge badge-info">Fixed</label>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Peter</td>
-                      <td>After effects</td>
-                      <td className="text-success">
-                        {' '}
-                        82.00% <i className="ti-arrow-up" />
-                      </td>
-                      <td>
-                        <label className="badge badge-success">Completed</label>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Dave</td>
-                      <td>53275535</td>
-                      <td className="text-success">
-                        {' '}
-                        98.05% <i className="ti-arrow-up" />
-                      </td>
-                      <td>
-                        <label className="badge badge-warning">In progress</label>
-                      </td>
-                    </tr>
-                  </tbody>
+                  {props.users.map((item: any, index: number) => {
+                    return (
+                      <tbody key={index}>
+                        <tr>
+                          <td>{item.name}</td>
+                          <td>Flash</td>
+                          <td className="text-danger">
+                            {' '}
+                            21.06% <i className="ti-arrow-down" />
+                          </td>
+                          <td>
+                            <label className="badge badge-warning">In progress</label>
+                          </td>
+                        </tr>
+                      </tbody>
+                    )
+                  })}
                 </table>
               </div>
             </div>
@@ -597,4 +538,12 @@ function ListUser() {
   )
 }
 
-export default ListUser
+const mapStateToProps = (state: any) => ({
+  users: state.users.items,
+})
+
+const mapDispatchToProps = (dispatch: any) => ({
+  actions: bindActionCreators(Actions, dispatch),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListUser)

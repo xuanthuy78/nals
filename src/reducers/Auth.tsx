@@ -1,7 +1,6 @@
 import { AUTH_LOGIN } from '../constants/ActionTypes'
 const initialState: Object = {
-  token: localStorage.getItem('token') ? localStorage.getItem('token') : '',
-  status: '',
+  token: localStorage.getItem('token') ? localStorage.getItem('token') : ''
 }
 
 const Auth = (state = initialState, action: any) => {
