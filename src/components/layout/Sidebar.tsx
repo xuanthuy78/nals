@@ -25,7 +25,7 @@ function Sidebar(props: any) {
                 aria-controls="ui-basic"
                 onClick={() => handleOnClick(index)}
               >
-                <i className={item.iconLeft} aria-hidden="true"></i>
+                <i className={`menu-icon ${item.iconLeft}`} aria-hidden="true"></i>
                 <span className="menu-title">{item.title}</span>
                 <i className={item.iconRight}></i>
               </Link>

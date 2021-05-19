@@ -2,13 +2,13 @@ export const SidebarData = [
   {
     title: 'Dashboard',
     path: '/',
-    iconLeft: 'fa fa-tachometer menu-icon',
+    iconLeft: 'fa fa-tachometer',
     iconRight: '',
   },
   {
     title: 'UI Elements',
     path: '/',
-    iconLeft: 'fa fa-superpowers menu-icon',
+    iconLeft: 'fa fa-superpowers',
     iconRight: 'menu-arrow',
     subNav: [
       {
@@ -24,31 +24,31 @@ export const SidebarData = [
   {
     title: 'Form elements',
     path: '/',
-    iconLeft: 'fa fa-keyboard-o menu-icon',
+    iconLeft: 'fa fa-keyboard-o',
     iconRight: '',
   },
   {
     title: 'Charts',
     path: '/',
-    iconLeft: 'fa fa-line-chart menu-icon',
+    iconLeft: 'fa fa-line-chart',
     iconRight: '',
   },
   {
     title: 'Tables',
     path: '/',
-    iconLeft: 'fa fa-table menu-icon',
+    iconLeft: 'fa fa-table',
     iconRight: '',
   },
   {
     title: 'Icons',
     path: '/',
-    iconLeft: 'fa fa-star-o menu-icon',
+    iconLeft: 'fa fa-star-o',
     iconRight: '',
   },
   {
     title: 'User Pages',
     path: '/',
-    iconLeft: 'fa fa-star-o menu-icon',
+    iconLeft: 'fa fa-star-o',
     iconRight: 'menu-arrow',
     subNav: [
       {
@@ -76,7 +76,7 @@ export const SidebarData = [
   {
     title: 'Documentation',
     path: '/',
-    iconLeft: 'fa fa-file-text-o menu-icon',
+    iconLeft: 'fa fa-file-text-o',
     iconRight: '',
   },
 ]
